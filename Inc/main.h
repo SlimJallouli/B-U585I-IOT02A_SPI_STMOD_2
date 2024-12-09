@@ -58,11 +58,14 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 #define CONSOLE_UART huart1
-#define QCC730_SPI hspi3
+#define STMOD2_SPI hspi3
+#define ARD_SPI hspi1
 #define UART3_SPI3_SEL_Pin GPIO_PIN_15
 #define UART3_SPI3_SEL_GPIO_Port GPIOH
-#define SPI3_NSS_Pin GPIO_PIN_12
-#define SPI3_NSS_GPIO_Port GPIOG
+#define STMOD2_SPI_NSS_Pin GPIO_PIN_12
+#define STMOD2_SPI_NSS_GPIO_Port GPIOG
+#define ARD_SPI_NSS_Pin GPIO_PIN_12
+#define ARD_SPI_NSS_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 
