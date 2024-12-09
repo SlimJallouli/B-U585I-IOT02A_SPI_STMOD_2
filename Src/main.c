@@ -110,35 +110,44 @@ int main(void)
   MX_SPI3_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-#define DATA_SIZE 16
-  uint8_t tx_data[DATA_SIZE] = {0};
-  uint8_t rx_data[DATA_SIZE] = {0};
-  
+#define tx_data_1 "123456789"
+#define DATA_SIZE_1 sizeof(tx_data_1)
+  uint8_t rx_data_1[DATA_SIZE_1] = {0};
+
+#define tx_data_2 "hello world"
+#define DATA_SIZE_2 sizeof(tx_data_2)
+  uint8_t rx_data_2[DATA_SIZE_2] = {0};
+
   /* To use the STMOD+ 2 SPI*/
+#if 0
   HAL_GPIO_WritePin      ( STMOD2_SPI_NSS_GPIO_Port, STMOD2_SPI_NSS_Pin, GPIO_PIN_RESET);
-  HAL_SPI_Transmit       (&STMOD2_SPI, tx_data,DATA_SIZE, 0xFFFFFFFF);
+  HAL_SPI_Transmit       (&STMOD2_SPI, tx_data_1,DATA_SIZE_1, 0xFFFFFFFF);
   HAL_GPIO_WritePin      ( STMOD2_SPI_NSS_GPIO_Port, STMOD2_SPI_NSS_Pin, GPIO_PIN_SET);
 
   HAL_GPIO_WritePin      ( STMOD2_SPI_NSS_GPIO_Port, STMOD2_SPI_NSS_Pin, GPIO_PIN_RESET);
-  HAL_SPI_Receive        (&STMOD2_SPI, rx_data,DATA_SIZE, 0xFFFFFFFF);
+  HAL_SPI_Receive        (&STMOD2_SPI, rx_data_1,DATA_SIZE_1, 0xFFFFFFFF);
   HAL_GPIO_WritePin      ( STMOD2_SPI_NSS_GPIO_Port, STMOD2_SPI_NSS_Pin, GPIO_PIN_SET);
+#endif
 
   HAL_GPIO_WritePin      ( STMOD2_SPI_NSS_GPIO_Port, STMOD2_SPI_NSS_Pin, GPIO_PIN_RESET);
-  HAL_SPI_TransmitReceive(&STMOD2_SPI, tx_data, rx_data,DATA_SIZE, 0xFFFFFFFF);
+  HAL_SPI_TransmitReceive(&STMOD2_SPI, tx_data_1, rx_data_1,DATA_SIZE_1, 0xFFFFFFFF);
   HAL_GPIO_WritePin      ( STMOD2_SPI_NSS_GPIO_Port, STMOD2_SPI_NSS_Pin, GPIO_PIN_SET);
 
   /* To use the ARDUINO SPI*/
+#if 0
   HAL_GPIO_WritePin      ( ARD_SPI_NSS_GPIO_Port, ARD_SPI_NSS_Pin, GPIO_PIN_RESET);
-  HAL_SPI_Transmit       (&ARD_SPI, tx_data,DATA_SIZE, 0xFFFFFFFF);
+  HAL_SPI_Transmit       (&ARD_SPI, tx_data_2,DATA_SIZE_2, 0xFFFFFFFF);
   HAL_GPIO_WritePin      ( ARD_SPI_NSS_GPIO_Port, ARD_SPI_NSS_Pin, GPIO_PIN_SET);
 
   HAL_GPIO_WritePin      ( ARD_SPI_NSS_GPIO_Port, ARD_SPI_NSS_Pin, GPIO_PIN_RESET);
-  HAL_SPI_Receive        (&ARD_SPI, rx_data,DATA_SIZE, 0xFFFFFFFF);
+  HAL_SPI_Receive        (&ARD_SPI, rx_data_2,DATA_SIZE_2, 0xFFFFFFFF);
   HAL_GPIO_WritePin      ( ARD_SPI_NSS_GPIO_Port, ARD_SPI_NSS_Pin, GPIO_PIN_SET);
+#endif
 
   HAL_GPIO_WritePin      ( ARD_SPI_NSS_GPIO_Port, ARD_SPI_NSS_Pin, GPIO_PIN_RESET);
-  HAL_SPI_TransmitReceive(&ARD_SPI, tx_data, rx_data,DATA_SIZE, 0xFFFFFFFF);
+  HAL_SPI_TransmitReceive(&ARD_SPI, tx_data_2, rx_data_2,DATA_SIZE_2, 0xFFFFFFFF);
   HAL_GPIO_WritePin      ( ARD_SPI_NSS_GPIO_Port, ARD_SPI_NSS_Pin, GPIO_PIN_SET);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
