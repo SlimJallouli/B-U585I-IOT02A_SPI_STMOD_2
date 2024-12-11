@@ -1,6 +1,6 @@
 
 # B-U585I-IOT02A_SPI_STMOD_2
-* Two SPI interfaces configured. SPI1 and SPI2.
+* Two SPI interfaces configured. SPI1 and SPI3.
 * SPI1 is connected to the ARDUINO connector
 * SPI3 is connected to the STMOD+ 2 connector.
 
