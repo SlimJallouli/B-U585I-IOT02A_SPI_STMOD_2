@@ -35,7 +35,7 @@
   HAL_GPIO_WritePin      ( ARD_SPI_NSS_GPIO_Port, ARD_SPI_NSS_Pin, GPIO_PIN_SET);
   ```
 
-### USE SPI1 connected to STMOD2
+### USE SPI3 connected to STMOD2
 
   ```
   HAL_GPIO_WritePin      ( STMOD2_SPI_NSS_GPIO_Port, STMOD2_SPI_NSS_Pin, GPIO_PIN_RESET);
